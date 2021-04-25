@@ -37,7 +37,7 @@ namespace LabSintaxis4Ej5
                 case "diciembre":
                     return 12;
                 default:
-                    Console.WriteLine("\nEl mes no existe. Se cerrará la aplicación");
+                    Console.WriteLine("\nEl mes no existe. Se cerrará la aplicación.");
                     return 0;
             }
         }
