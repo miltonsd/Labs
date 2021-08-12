@@ -24,13 +24,6 @@ namespace Ejercicio4
             myconn.ConnectionString =
                 "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True";
 
-            //Creo un objeto SQLCommand
-            SqlCommand mycomando = new SqlCommand();
-            //Le indico la cadena TSQL que utilizará
-            mycomando.CommandText = "SELECT CustomerID, CompanyName FROM Customers";
-            //Indico el objeto connection que utilizará
-            mycomando.Connection = myconn;
-
             //Creamos un adaptador del tipo SQLDataAdapter y
             //Le indicamos el command text que utilizará para realizar la consulta
             //y el objeto sqlconnection que utiliza
@@ -39,11 +32,9 @@ namespace Ejercicio4
 
             //Abro la conexion
             myconn.Open();
-            //Creo un objeto DataReader y ejecuto el método
-            //ExecuteReader del objeto mycomando
-            SqlDataReader mydr = mycomando.ExecuteReader();
-            //Cargo los datos en el datatable utilizando el objeto DataReader
-            dtEmpresas.Load(mydr);
+            //Cargo el contenido del result set obtenido de la base
+            //de datos en el objeto datatable
+            myadap.Fill(dtEmpresas);
             //Cierro la conexion
             myconn.Close();
 
